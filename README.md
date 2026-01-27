@@ -5,7 +5,7 @@ Hello, I'm Mohammad, nicknamed Godfather, and today, after 10 days of internet o
 
 ---
 
-# ===============V1.5 (BETA)==================
+# ===============V1.6 (BETA)==================
 ![update](update.png)
 # Update Features:
 ```markdown
