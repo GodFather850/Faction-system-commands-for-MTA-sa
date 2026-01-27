@@ -15,30 +15,31 @@ local thePlayer_name = getPlayerName(thePlayer)
 local Player_Rank_Faction = tonumber(getElementData(accSys.getPlayerAcc(thePlayer), "pFactionRank"))
 local find_Rank_Faction = tonumber(getElementData(accSys.getPlayerAcc(find), "pFactionRank"))
 local Player_Faction = tonumber(getElementData(accSys.getPlayerAcc(thePlayer), "pFaction"))
-local find_Faction = tonumber(getelementData(accSys.getPlayerAcc(find), "pFaction"))
+local find_Faction = tonumber(getElementData(accSys.getPlayerAcc(find), "pFaction"))
 local Player_Warn = tonumber(getElementData(accSys.getPlayerAcc(thePlayer), "pFactionWarn"))
 local find_Warn = tonumber(getElementData(accSys.getPlayerAcc(find), "pFactionWarn"))
 local find_Ban_Faction = tonumber(getElementData(accSys.getPlayerAcc(find), "pFactionBan"))
 local find_Faction_Punish = tonumber(getElementData(accsys.getPlayerAcc(find), "pFactionPunish"))
+local find_Bank = tonumber(getElementData(accSys.getPlayerAcc(find), "pBankCash"))
 
 -- ===================factions Table======================
 
 local factions = {
-    [0]: {name = "Civilian", skin = 2}
-    [1]: {name = "Federal", skin = 117}
-    [2]: {name = "Mechanic", skin = 217}
-    [3]: {name = "National Gard", skin = 200}
-    [4]: {name = "School", skin = 1}
+    [0] = {name = "Civilian", skin = 2},
+    [1] = {name = "Federal", skin = 117},
+    [2] = {name = "Mechanic", skin = 217},
+    [3] = {name = "National Gard", skin = 200},
+    [4] = {name = "School", skin = 1}
 }
 
 -- Factions Rank
 local frank = {
-    [0]: {rank = "trial"}
-    [1]: {rank = "bronze"}
-    [2]: {rank = "sub"}
-    [3]: {rank = "silver"}
-    [4]: {rank = "gold"}
-    [5]: {rank = "Leader"}
+    [0] = {rank = "trial"},
+    [1] = {rank = "bronze"},
+    [2] = {rank = "sub"},
+    [3] = {rank = "silver"},
+    [4] = {rank = "gold"},
+    [5] = {rank = "Leader"}
 }
 
 -- ===================commands=======================
@@ -114,11 +115,12 @@ function  demote(thePlayer, command, player, ...)
     if (Player_admin) <= 20 or (Player_Rank_Faction) < 4 then
         return false
     end
-    local reason = string.sub(table.concat({...}, " ") 1, 90)
+    local reason = string.sub(table.concat({...}, " "), 1, 90)
     if thePlayer then
         if command then
             if player then
                 if (...) then
+                    
                     setElementData(accSys.getPlayerAcc(find), "pFaction", 0)
                     setElementData(accSys.getPlayerAcc(find), "pFactionRank", 0)
                     setElementData(accSys.getPlayerAcc(find), "pFactionWarn", 0)
@@ -127,7 +129,7 @@ function  demote(thePlayer, command, player, ...)
                     outputChatBox("#7a7744[Faction-System]: #FFFFFFplayer #FF0000"..find_name.." #FFFFFF Kicked By #FF0000"..thePlayer_name.." #FFFFFF Reason:"..reason, find, 255, 255, 255, true)
                     if (find_Warn) > 0 and (find_Warn) < 3 then
                         for warn in ipairs(find_Warn) do
-                            setElementData(accSys.getPlayerAcc(find), "pFactionPunish") + 10
+                            setElementData(accSys.getPlayerAcc(find), "pFactionPunish", find_Faction_Punish + 10)
                         end
                     end
                 else
@@ -143,7 +145,7 @@ function  demote(thePlayer, command, player, ...)
 end
 if (find_Warn) > 0 and (find_Warn) < 3 then
     for warn in ipairs(find_Warn) do
-        setElementData(accSys.getPlayerAcc(find), "pFactionPunish") + 10
+        setElementData(accSys.getPlayerAcc(find), "pFactionPunish", find_Faction_Punish + 10)
     end 
 end
     
@@ -161,7 +163,7 @@ function warn(thePlayer, cmd, player, warn, ...)
     end
 
     local warn = tonumber(warn)
-    local reason = string.sub(table.concat({...}, " ")1, 90)
+    local reason = string.sub(table.concat({...}, " "), 1, 90)
     local calculate_warn = (find_Warn) + warn
     
     if (calculate_warn) >= 4 then
@@ -176,14 +178,14 @@ function warn(thePlayer, cmd, player, warn, ...)
                     if (Player_Rank_Faction) > (find_Rank_Faction) then
                         if (find_Warn) < 3 then
                             if warn < 4 then
-                                setElementData(accSys.getPlayerAcc(find), "pFactionWarn") + warn
+                                setElementData(accSys.getPlayerAcc(find), "pFactionWarn", find_Warn + 10)
                                 notf.addNotification(thePlayer, "Player Warned Reason:"..reason, 'success')
                                 outputChatBox("#7a7744[Faction-System]: your are get a warn Than #ffffff"..thePlayer_name.. "#7a7744 your warns: #ffffff"..find_Warn.."/3", find, 255, 255, 255, true)
                                 if (find_Warn) >= 3 then
                                     setElementData(accSys.getPlayerAcc(find), "pFaction", 0)
                                     setElementData(accSys.getPlayerAcc(find), "pFactionWarn", 0)
                                     setElementData(accSys.getPlayerAcc(find), "pFactionRank", 0)
-                                    setElementData(accSys.getPlayerAcc(find), "pFactionPunish") + 80
+                                    setElementData(accSys.getPlayerAcc(find), "pFactionPunish", find_Faction_Punish + 80) 
                                     outputChatBox("#7a7744 [Faction-System]: Player #FFFFFF"..find_name.." #7a7744 Kicked with 3 warn", thePlayer, 255, 255, 255, true)
                                     outputChatBox("#7a7744 [Faction-System]: Player #FFFFFF"..find_name.." #7a7744 Kicked with 3 warn", find, 255, 255, 255, true)
                                 end
@@ -217,7 +219,7 @@ function warns(thePlayer)
     end
     if thePlayer then
         outputChatBox("#FFAE00 ================================================", thePlayer, 255, 255, 255 , true)
-        for i in ipairs(getElementsByTyps("player")) do
+        for i in ipairs(getElementsByType("player")) do
             if getElementData(i, "LogedIn") == true then
                 if tonumber(getElementData(accSys.getPlayerAcc(i), "pFaction")) == (Player_Faction) then
                     if tonumber(getElementData(accSys.getPlayerAcc(i), "pFactionWarn")) > 1 then
@@ -250,7 +252,7 @@ function salary(thePlayer, cmd, amount)
                     for Players_Faction in ipairs(getElementsByTyps("player")) do
                         if tonumber(getElementdata(accSys.getPlayerAcc(Players_Faction), "pFaction")) == (Player_Faction) then
                             if (Player_Cash) >= amount or (Player_money) >= amount then
-                                setElementData(accSys.getPlayerAcc(Players_Faction), "pBankCash") + amount
+                                setElementData(accSys.getPlayerAcc(Players_Faction), "pBankCash", find_Bank + amount) 
                                 outputChatBox("#FFAE00 your Salary in Server bank goto bank for get your salary!!", Players_Faction, 255, 255, 255, true)
                             else
                                 notf.addNotification(thePlayer, "your cash is Low", 'error')
@@ -285,9 +287,9 @@ function clearwarn(thePlayer, cmd, player, cwnum)
                 if cwarn then
                     if cwarn == 1 then
                         if (find_Warn) > 0 then
-                            setElementData(accSys.getPlayerAcc(find), "pFactionWarn") - cwarn
+                            setElementData(accSys.getPlayerAcc(find), "pFactionWarn", find_Warn - cwarn) 
                             if (find_Warn) < 0 then
-                                setElementData(accSys.getPlayerAcc(find), "pFactionWarn") + cwarn
+                                setElementData(accSys.getPlayerAcc(find), "pFactionWarn", find_Warn + cwarn) 
                                 notf.addNotification(thePlayer, "wrong warn!! Player warns:"..find_Warn, 'error')
                             end
                             outputChatBox("#7a7744 [Faction-System]: #FFFFF 1 warn cleared By #FF0000"..thePlayer_name.." #FFFFFF for #FF0000"..find_name, thePlayer, 255, 255, 255, true)
@@ -340,11 +342,11 @@ end)
 --=============================================================================================================================
 
 function banf(thePlayer, cmd, player, time, ...)
-    if (Player_admin) < 14 the
+    if (Player_admin) < 14 then
         return false
     end
 
-    local reason = string.sub(table.concat({...}, " "). 1, 90)
+    local reason = string.sub(table.concat({...}, " "), 1, 90)
     local time = tonumber(time)
     if thePlayer then
         if cmd then
@@ -461,7 +463,7 @@ function setrank(thePlayer, cmd, player, rank)
                     if rank then
                         if rank ~= (find_Rank_Faction) then
 
-                            if rank in (frank) then -- input rank filter and Logs for change ranks
+                            if rank == frank.rank then -- input rank filter and Logs for change ranks
                                 setElementData(accSys.getPlayerAcc(find), "pFactionRank", rank)
                                 outputDebugString("Leader or admin "..thePlayer_name.." changed rank player "..find_name.." to "..findrank.rank)
                                 exports.Log.newLog("Leader or admin "..thePlayer_name.." changed rank player "..find_name.." to "..findrank.rank)
@@ -524,7 +526,7 @@ function setrank(thePlayer, cmd, player, rank)
     -- Loop for send demote or promote message to admins for report changes and manage events
     for index, chat_admin in ipairs(getElementsByType("player")) do
         local admin_Rank = tonumber(getElementData(accSys.getPlayerAcc(chat_admin), "pAdmin"))
-        if getElementData(chat_admin, 'LoggedIn') == true
+        if getElementData(chat_admin, 'LoggedIn') == true then 
             if (admin_Rank) >= 1 then -- message filter
 
                 if rank < (find_Rank_Faction) then -- if demoted:
