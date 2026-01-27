@@ -3,9 +3,15 @@ Hello, I'm Mohammad, nicknamed Godfather, and today, after 10 days of internet o
 
 ![MTA](mta131.png)
 
-# =================================
-**Update {V1.5 (BETA)} is coming...**
-# =================================
+# ===============V1.5 (BETA)==================
+# Update Features:
+```markdown
+Fixed Bugs
+Optimized Ranks
+front (chats) optimized
+Secure commands upgraded
+```
+# ============================================
 ---
 
 # Features
