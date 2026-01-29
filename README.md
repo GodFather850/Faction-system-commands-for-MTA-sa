@@ -11,6 +11,7 @@ Hello, I'm Mohammad, nicknamed Godfather, and today, after 10 days of internet o
 ```markdown
 Fixed Bugs
 Optimized Ranks
+add meta.xml file
 front (chats) optimized
 Secure commands upgraded
 ```
@@ -40,7 +41,7 @@ Secure commands upgraded
 
 1. ![Click-Me](https://github.com/GodFather850/Faction-system-commands-for-MTA-sa/archive/refs/heads/main.zip)
 
-2.  copy or move file to your recources folder
+2.  copy or move lua file and xml file to your recources folder
 
 3.  refresh your Debug Panel `refresh`
 
