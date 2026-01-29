@@ -5,9 +5,9 @@ Hello, I'm Mohammad, nicknamed Godfather, and today, after 10 days of internet o
 
 ---
 
-# ===============V1.6 (BETA)==================
+# =======================================================
 ![update](update.png)
-# Update Features:
+# Update Features: (BETA)
 ```markdown
 Fixed Bugs
 Optimized Ranks
@@ -15,7 +15,7 @@ add meta.xml file
 front (chats) optimized
 Secure commands upgraded
 ```
-# ============================================
+# =======================================================
 
 ---
 
