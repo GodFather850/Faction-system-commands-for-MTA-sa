@@ -5,7 +5,7 @@ Hello, I'm Mohammad, nicknamed Godfather, and today, after 10 days of internet o
 
 ---
 
-# =======================================================
+# =============================================
 ![update](update.png)
 # Update Features: (BETA)
 ```markdown
@@ -15,7 +15,7 @@ add meta.xml file
 front (chats) optimized
 Secure commands upgraded
 ```
-# =======================================================
+# # =============================================
 
 ---
 
@@ -47,7 +47,9 @@ Secure commands upgraded
 
 4. make folder and move faction.lua in folder
 
-5. start folder `start `
+5. start folder `start`
+
+6. if start is faild restart your server ( CTRL + c )
 
 ---
 # Notifcation
