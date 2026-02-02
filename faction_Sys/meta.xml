@@ -1,0 +1,6 @@
+<meta>
+    <authot name="GodFather" project="faction commands" />
+    <script src="commands.lua" type="server" />
+    <script src="functions.lua" type="server" />
+    <script src="variables.lua" type="server" />
+</meta>
