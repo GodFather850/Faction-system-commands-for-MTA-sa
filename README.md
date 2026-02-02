@@ -35,6 +35,7 @@ code parsing for easier development
 **Connect to SQL database**
 
 **All CMDs have been fully considered, inputs are controlled, and errors are presented in an eye-catching and readable manner.**
+**code parsing for easier development**
 
 ---
 
