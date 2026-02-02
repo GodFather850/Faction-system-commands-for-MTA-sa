@@ -61,6 +61,7 @@ code parsing for easier development
 ```lua
 -- goto code and change your table name and account system folder name
 -- If you pay attention to the loops, the table names inside are also variable. Change them as desired according to the server database.
+-- goto variables.lua file in faction_Sys
 local accSys = exports["Accounts-System"] -- db Connect
 local mickSys = export["mick"] -- find & .....
 local notf = exports["notf"] -- notf in Server
