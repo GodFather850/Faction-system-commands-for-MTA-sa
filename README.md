@@ -5,21 +5,6 @@ Hello, I'm Mohammad, nicknamed Godfather, and today, after 10 days of internet o
 
 ---
 
-# =============================================
-![update](update.png)
-# Update Features:
-```markdown
-Fixed Bugs
-Optimized Ranks
-add meta.xml file
-front (chats) optimized
-Secure commands upgraded
-code parsing for easier development
-```
-# =============================================
-
----
-
 # Features
 
 *This efficient code includes:*
