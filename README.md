@@ -4,8 +4,6 @@ Hello, I'm Mohammad, nicknamed Godfather, and today, after 10 days of internet o
 ![MTA](mta131.png)
 
 ---
-**fixing notification problem**
----
 
 # Features
 
