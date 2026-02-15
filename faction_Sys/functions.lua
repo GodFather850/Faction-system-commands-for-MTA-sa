@@ -28,22 +28,22 @@ function invite(thePlayer, command, player, faction, factionrank) -- /invite
                             outputDebugString("Player "..find_name.." faction set to "..find_Faction)
                             exports.Log.newLog("Player "..find_name.." faction set to "..find_Faction)
                         else
-                            notf.addNotification(thePlayer, "Player is faction baned", 'error')
+                            exports["notf"]:addNotification(thePlayer, "Player is faction baned", 'error')
                         end
                     else
-                        notf.addNotification(thePlayer, "Player In Faction! (/id "..find_name..")", 'error')
+                        exports["notf"]:addNotification(thePlayer, "Player In Faction! (/id "..find_name..")", 'error')
                     end
                 else
-                    notf.addNotification(thePlayer, "Enter Rank Number!!", 'error')
+                    exports["notf"]:addNotification(thePlayer, "Enter Rank Number!!", 'error')
                 end
             else
-                notf.addNotification(thePlayer, "please Enter Faction")
+               exports["notf"]:addNotification(thePlayer, "please Enter Faction")
             end
         else
-            notf.addNotification(thePlayer, "Player Not found!", 'error')
+            exports["notf"]:addNotification(thePlayer, "Player Not found!", 'error')
         end
     else
-        notf.addNotification(thePlayer, "Syntax: /invite <player_id> <faction id> <faction rank>", 'info')
+        exports["notf"]:addNotification(thePlayer, "Syntax: /invite <player_id> <faction id> <faction rank>", 'info')
     end
 end
 
@@ -90,14 +90,14 @@ function  demote(thePlayer, command, player, ...)
                         end
                     end
                 else
-                    notf.addNotification(thePlayer, "Enter Reason", 'error')
+                    exports["notf"]:addNotification(thePlayer, "Enter Reason", 'error')
                 end
             else
-                notf.addNotification(thePlayer, "Player Not Found!", 'error')
+                exports["notf"]:addNotification(thePlayer, "Player Not Found!", 'error')
             end
         end
     else
-        notf.addNotification(thePlayer, "Syntax: /kickfp <Player> <Reason>", 'info')
+        exports["notf"]:addNotification(thePlayer, "Syntax: /kickfp <Player> <Reason>", 'info')
     end
 end
 if (find_Warn) > 0 and (find_Warn) < 3 then
@@ -147,19 +147,19 @@ function warn(thePlayer, cmd, player, warn, ...)
                             end
                         end
                     else
-                        notf.addNotification(thePlayer, "how to give warn to leader faction ?", 'error')
+                        exports["notf"]:addNotification(thePlayer, "how to give warn to leader faction ?", 'error')
                     end
                 else
-                    notf.addNotification(thePlayer, "Error: Enter reason for warn message", 'error')
+                    exports["notf"]:addNotification(thePlayer, "Error: Enter reason for warn message", 'error')
                 end
             else
-                notf.addNotification(thePlayer, "player Not found!!", 'error')
+               exports["notf"]:faddNotification(thePlayer, "player Not found!!", 'error')
             end
         else
-            notf.addNotification(thePlayer, "Syntax: /warn <player> <warn> <reason>", 'info')
+            exports["notf"]:addNotification(thePlayer, "Syntax: /warn <player> <warn> <reason>", 'info')
         end
     else
-        notf.addNotification(thePlayer, "Syntax: /warn <player> <warn> <reason>", 'info')
+       exports["notf"]:addNotification(thePlayer, "Syntax: /warn <player> <warn> <reason>", 'info')
     end
 end
 
@@ -208,19 +208,17 @@ function salary(thePlayer, cmd, amount)
                                 setElementData(accSys.getPlayerAcc(Players_Faction), "pBankCash", find_Bank + amount) 
                                 outputChatBox("#FFAE00 your Salary in Server bank goto bank for get your salary!!", Players_Faction, 255, 255, 255, true)
                             else
-                                notf.addNotification(thePlayer, "your cash is Low", 'error')
+                                exports["notf"]:addNotification(thePlayer, "your cash is Low", 'error')
                             end
-                        else
-                            return false
                         end
                     end
                 end
             else
-                notf.addNotification(thePlayer, "wrong input amount!!", 'error')
+               exports["notf"]:addNotification(thePlayer, "wrong input amount!!", 'error')
             end 
         end
     else
-        notf.addNotification(thePlayer, "Syntax: /salary <amount>")
+        exports["notf"]:addNotification(thePlayer, "Syntax: /salary <amount>")
     end
 end
 
@@ -247,22 +245,22 @@ function clearwarn(thePlayer, cmd, player, cwnum)
                             outputChatBox("#7a7744 [Faction-System]: #FFFFF 1 warn cleared By #FF0000"..thePlayer_name.." #FFFFFF for #FF0000"..find_name, thePlayer, 255, 255, 255, true)
                             outputChatBox("#7a7744 [Faction-System]: #FFFFF 1 warn cleared By #FF0000"..thePlayer_name.." #FFFFFF for #FF0000"..find_name, find, 255, 255, 255, true)
                         else
-                            notf.addNotification(thePlayer, "find player warns: 0", 'error')
+                            exports["notf"]:addNotification(thePlayer, "find player warns: 0", 'error')
                         end
                     else
-                        notf.addNotification(thePlayer, "warn for clean = 0", 'error')
+                        exports["notf"]:addNotification(thePlayer, "warn for clean = 0", 'error')
                     end
                 else
-                    notf.addNotification(thePlayer, "Error: Enter clear warn digit", 'error')
+                   exports["notf"]:addNotification(thePlayer, "Error: Enter clear warn digit", 'error')
                 end   
             else                 
-                notf.addNotification(thePlayer, "Player not found!!", 'error')
+                exports["notf"]:addNotification(thePlayer, "Player not found!!", 'error')
             end
         else
-            notf.addNotification(thePlayer, "Syntax: /cwarn <player> <warn>")
+            exports["notf"]:addNotification(thePlayer, "Syntax: /cwarn <player> <warn>")
         end
     else
-        notf.addNotification(thePlayer, "Syntax: /cwarn <player> <warn>")
+        exports["notf"]:addNotification(thePlayer, "Syntax: /cwarn <player> <warn>")
     end
 end
 
@@ -311,19 +309,19 @@ function banf(thePlayer, cmd, player, time, ...)
                             end
                         end
                     else
-                        notf.addNotification(thePlayer, "Enter Reason!", 'error')
+                        exports["notf"]:addNotification(thePlayer, "Enter Reason!", 'error')
                     end
                 else
-                    notf.addNotification(thePlayer, "Enter ban time")
+                    exports["notf"]:addNotification(thePlayer, "Enter ban time")
                 end
             else
-                notf.addNotification(thePlayer, "Player Not Found!", 'error')
+                exports["notf"]:addNotification(thePlayer, "Player Not Found!", 'error')
             end
         else
-            notf.addNotification(thePlayer, "Syntax: /fban <player> <time> <reason>", 'info')
+            exports["notf"]:addNotification(thePlayer, "Syntax: /fban <player> <time> <reason>", 'info')
         end
     else
-        notf.addNotification(thePlayer, "Syntax: /fban <player> <time> <reason>", 'info')
+        exports["notf"]:addNotification(thePlayer, "Syntax: /fban <player> <time> <reason>", 'info')
     end
 end
 
@@ -344,16 +342,16 @@ function promote(thePlayer, cmd, player, rank)
                     outputChatBox("#7a7744 [Faction-System]: #FFFFF Player #FF0000"..find_name.." #FFFFF Promoted by #FF0000"..thePlayer_name, thePlayer, 255, 255 ,255, true)
                     outputChatBox("#7a7744 [Faction-System]: #FFFFF Player #FF0000"..find_name.." #FFFFF Promoted by #FF0000"..thePlayer_name, find, 255, 255 ,255, true)
                 else
-                    notf.addNotification(thePlayer, "Enter Rank <1~4> !!!", 'error')
+                    exports["notf"]:addNotification(thePlayer, "Enter Rank <1~4> !!!", 'error')
                 end
             else
-                notf.addNotification(thePlayer, "player not found!!", 'error')
+                exports["notf"]:addNotification(thePlayer, "player not found!!", 'error')
             end
         else
-            notf.addNotification(thePlayer, "Syntax: /rankup <player> <rank 1~4>", 'info')
+            exports["notf"]:addNotification(thePlayer, "Syntax: /rankup <player> <rank 1~4>", 'info')
         end
     else
-        notf.addNotification(thePlayer, "Syntax: /rankup <player> <rank 1~4>", 'info')
+        exports["notf"]:addNotification(thePlayer, "Syntax: /rankup <player> <rank 1~4>", 'info')
     end
 end
 
@@ -378,19 +376,19 @@ function setFactionPunish(thePlayer, cmd, player, hfp, ...)
                         outputDebugString("[Faction-System]: faction governor "..thePlayer_name.." changed Faction Punish player: "..find_name.." new Faction Punish: "..hfp)
                         exports.Log.newLog("[Faction-System]: faction governor "..thePlayer_name.." changed Faction Punish player: "..find_name.." new Faction Punish: "..hfp)
                     else
-                        notf.addNotification(thePlayer, "where is Reason?", 'error')
+                        exports["notf"]:addNotification(thePlayer, "where is Reason?", 'error')
                     end
                 else
-                    notf.addNotification(thePlayer, "Enter new Faction Punish to change fp", 'warning')
+                    exports["notf"]:addNotification(thePlayer, "Enter new Faction Punish to change fp", 'warning')
                 end
             else
-                notf.addNotification(thePlayer, "Player Not Found", 'error')
+                exports["notf"]:.addNotification(thePlayer, "Player Not Found", 'error')
             end
         else
-            notf.addNotification(thePlayer, "Syntax: /setfp <Player> <new fp> <reason>", 'info')
+            exports["notf"]:addNotification(thePlayer, "Syntax: /setfp <Player> <new fp> <reason>", 'info')
         end
     else
-        notf.addNotification(thePlayer, "Syntax: /setfp <Player> <new fp> <reason>", 'info')
+        exports["notf"]:addNotification(thePlayer, "Syntax: /setfp <Player> <new fp> <reason>", 'info')
     end
 end
 
@@ -451,25 +449,25 @@ function setrank(thePlayer, cmd, player, rank)
                                     end
                                 end
                             else
-                                notf.addNotification(thePlayer, "Wrong Rank!! Enter (1~4)", 'error')
+                                exports["notf"]:addNotification(thePlayer, "Wrong Rank!! Enter (1~4)", 'error')
                             end
                         else
-                            notf.addNotification(thePlayer, "Wrong Rank", 'error')
+                           exports["notf"]:addNotification(thePlayer, "Wrong Rank", 'error')
                         end
                     else
-                        notf.addNotification(thePlayer, "[Error]: Enter Rank", 'error')
+                        exports["notf"]:addNotification(thePlayer, "[Error]: Enter Rank", 'error')
                     end
                 else
-                    notf.addNotification(thePlayer, "Player Not Found", 'error')
+                    exports["notf"]:addNotification(thePlayer, "Player Not Found", 'error')
                 end
             else
-                notf.addNotification(thePlayer, "Syntax: /setfrank <player> <new-rank>", 'info')
+                exports["notf"]:addNotification(thePlayer, "Syntax: /setfrank <player> <new-rank>", 'info')
             end
         else
-            notf.addNotification(thePlayer, "Syntax: /setfrank <player> <new-rank>", 'info')
+            exports["notf"]:addNotification(thePlayer, "Syntax: /setfrank <player> <new-rank>", 'info')
         end
     else
-        notf.addNotification(thePlayer, "Syntax: /setfrank <player> <new-rank>", 'info')
+        exports["notf"]:addNotification(thePlayer, "Syntax: /setfrank <player> <new-rank>", 'info')
     end
 
     -- Loop for send demote or promote message to admins for report changes and manage events
@@ -519,19 +517,19 @@ function setfaction(thePlayer, cmd, player, faction, ...)
                             end
                         end
                     else
-                        notf.addNotification(thePlayer, "Enter reason", 'error')
+                        exports["notf"]:addNotification(thePlayer, "Enter reason", 'error')
                     end
                 else
-                    notf.addNotification(thePlayer, "Enter Faction ID!!!", 'error')
+                    exports["notf"]:addNotification(thePlayer, "Enter Faction ID!!!", 'error')
                 end
             else
-                notf.addNotification(thePlayer, "player Not Found", 'error')
+                exports["notf"]:addNotification(thePlayer, "player Not Found", 'error')
             end
         else
-            notf.addNotification(thePlayer, "Syntax: /setf <player> <faction> <reason>", 'info')
+            exports["notf"]:addNotification(thePlayer, "Syntax: /setf <player> <faction> <reason>", 'info')
         end
     else
-        notf.addNotification(thePlayer, "Syntax: /setf <player> <faction> <reason>", 'info')
+        exports["notf"]:addNotification(thePlayer, "Syntax: /setf <player> <faction> <reason>", 'info')
     end
     for index, chat_admin in ipairs(getElementsByType("player")) do
         local chatRank = tonumber(getElementData(accSys.getPlayerAcc(chat_admin), "pAdmin"))
@@ -568,16 +566,16 @@ function makeleader(thePlayer, cmd, player, leaderfID)
                             end
                         end
                     else
-                        notf.addNotification(thePlayer, "Error: Faction ID (1 ~ 4)", 'error')
+                        exports["notf"]:addNotification(thePlayer, "Error: Faction ID (1 ~ 4)", 'error')
                     end
                 else
-                    notf.addNotification(thePlayer, "Syntax: /ml <player> <faction (1 ~ 4)>", 'info')
+                   exports["notf"]:addNotification(thePlayer, "Syntax: /ml <player> <faction (1 ~ 4)>", 'info')
                 end
             else
-                notf.addNotification(thePlayer, "Player Not Found!!", 'error')
+               exports["notf"]:addNotification(thePlayer, "Player Not Found!!", 'error')
             end
         else
-            notf.addNotification(thePlayer, "Syntax: /ml <player> <faction (1 ~ 4)>", 'info')
+            exports["notf"]:addNotification(thePlayer, "Syntax: /ml <player> <faction (1 ~ 4)>", 'info')
         end
     end
 end
